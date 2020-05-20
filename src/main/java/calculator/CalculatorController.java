@@ -55,4 +55,40 @@ public class CalculatorController {
         }
     }
 
+
+    @FXML
+    public void processDot(ActionEvent event) {
+        /**String dotProcessd = ((Button) event.getSource()).getText();
+        System.out.println(dotProcessd);
+        number1 = Double.parseDouble(display.getText()) /
+                Double.parseDouble(String.valueOf(Math.pow(10, display.getLength())));
+        display.setText(String.valueOf(number1));
+         */
+        String dotProcessd = ((Button) event.getSource()).getText();
+        System.out.println(dotProcessd);
+        number1 = Double.parseDouble(String.valueOf(display.getText())) +
+                Double.parseDouble(String.valueOf(Math.pow(10, -(display.getLength()))));
+        display.setText(String.valueOf(number1));
+    }
+
+    @FXML
+    public void processSign(ActionEvent event){
+        String signProcessd = ((Button) event.getSource()).getText();
+        System.out.println(signProcessd);
+
+        number1 = Double.parseDouble(display.getText()) * -1;
+        display.setText(String.valueOf(number1));
+    }
+
+    @FXML
+    public void processAC(ActionEvent event){
+        String acProcessd = ((Button) event.getSource()).getText();
+        System.out.println(acProcessd);
+        display.setText("0");
+        startNumber = true;
+        operator = "";
+        number1 = 0;
+    }
+
+
 }
